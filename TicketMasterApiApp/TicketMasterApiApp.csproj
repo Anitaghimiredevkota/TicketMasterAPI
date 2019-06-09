@@ -178,6 +178,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserEventController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,6 +222,7 @@
     <Compile Include="Models\UserFavorite.cs">
       <DependentUpon>TicketMasterApiAppDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserFavoroiteDBDAL.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -313,6 +315,14 @@
     <Content Include="obj\Debug\TicketMasterApiApp.csproj.CoreCompileInputs.cache" />
     <Content Include="obj\Debug\TicketMasterApiApp.csprojAssemblyReference.cache" />
     <Content Include="bin\TicketMasterApiApp.dll.config" />
+    <Content Include="Web.config" />
+    <Content Include="Views\UserEvent\Index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
     <EntityDeploy Include="Models\TicketMasterApiAppDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>TicketMasterApiAppDB.Designer.cs</LastGenOutput>
@@ -331,13 +341,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />

@@ -1,0 +1,12 @@
+﻿@model System.Collections.Generic.List<TicketMasterApiApp.Models.Event>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (TicketMasterApiApp.Models.Event e in @Model)
+{
+    <p>@e.Id</p>
+}
+

@@ -11,11 +11,13 @@ namespace TicketMasterApiApp.Models
 {
     public class TicketMasterApiAppDAL
     {
-        private static readonly string ApiKey = "?apikey=" + ConfigurationManager.AppSettings["TicketMasterApiKey"];
+        private static readonly string ApiKey = "apikey=" + ConfigurationManager.AppSettings["TicketMasterApi"];
 
+        
         public static JObject GetData(string url)
         {
-            HttpWebRequest request = WebRequest.CreateHttp("https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=Kpj2rgTEX1l8IZ9iae7DASDwI9gz2tCO");
+            
+            HttpWebRequest request = WebRequest.CreateHttp(url + ApiKey);
             request.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0";
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -23,8 +25,7 @@ namespace TicketMasterApiApp.Models
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 StreamReader reader = new StreamReader(response.GetResponseStream());
-                JObject rawData = JObject.Parse(reader.ReadToEnd());
-                return rawData;
+                return JObject.Parse(reader.ReadToEnd());
             }
             return null;
         }
