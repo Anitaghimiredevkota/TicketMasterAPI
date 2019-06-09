@@ -10,8 +10,8 @@ namespace TicketMasterApiApp.Controllers
     {
         public ActionResult Index()
         {
-            TicketMasterApiApp.Models.TicketMasterApiAppDAL.GetData("");
-            TicketMasterApiApp.Models.TicketMasterApiAppDAL.GetEventById("");
+            //TicketMasterApiApp.Models.TicketMasterApiAppDAL.GetData("");
+            //TicketMasterApiApp.Models.TicketMasterApiAppDAL.GetEventById("");
 
             return View();
         }

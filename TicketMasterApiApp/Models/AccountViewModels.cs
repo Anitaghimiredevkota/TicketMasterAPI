@@ -65,6 +65,23 @@ namespace TicketMasterApiApp.Models
     public class RegisterViewModel
     {
         [Required]
+        [StringLength(25, ErrorMessage = "{0} cannot be greater than 25 letter", MinimumLength = 2)]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [StringLength(25, ErrorMessage = "{0} cannot be greater than 25 letter", MinimumLength = 2)]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [StringLength(25, ErrorMessage = "{0} cannot be greater than 25 letter", MinimumLength = 5)]
+        [Display(Name = "Last Name")]
+        public string UserName { get; set; }
+
+
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
