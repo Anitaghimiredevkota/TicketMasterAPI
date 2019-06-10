@@ -176,52 +176,21 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserEventController.cs" />
+    <Compile Include="Controllers\UserFavoritesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AspNetRole.cs">
-      <DependentUpon>TicketMasterApiAppDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUser.cs">
-      <DependentUpon>TicketMasterApiAppDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserClaim.cs">
-      <DependentUpon>TicketMasterApiAppDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserLogin.cs">
-      <DependentUpon>TicketMasterApiAppDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>TicketMasterApiAppDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Event.cs">
-      <DependentUpon>TicketMasterApiAppDB.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\AllDBContext.cs" />
+    <Compile Include="Models\Event.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\TicketMasterApiAppDAL.cs" />
-    <Compile Include="Models\TicketMasterApiAppDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TicketMasterApiAppDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TicketMasterApiAppDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TicketMasterApiAppDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TicketMasterApiAppDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TicketMasterApiAppDB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserFavorite.cs">
-      <DependentUpon>TicketMasterApiAppDB.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\UserFavorite.cs" />
     <Compile Include="Models\UserFavoroiteDBDAL.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
@@ -295,16 +264,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\TicketMasterApiAppDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TicketMasterApiAppDB.edmx</DependentUpon>
-      <LastGenOutput>TicketMasterApiAppDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\TicketMasterApiAppDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TicketMasterApiAppDB.edmx</DependentUpon>
-      <LastGenOutput>TicketMasterApiAppDB.cs</LastGenOutput>
-    </Content>
     <Content Include="obj\Debug\TicketMasterApiApp.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\TicketMasterApiApp.dll" />
     <Content Include="obj\Debug\TicketMasterApiApp.pdb" />
@@ -316,6 +275,17 @@
     <Content Include="obj\Debug\TicketMasterApiApp.csprojAssemblyReference.cache" />
     <Content Include="bin\TicketMasterApiApp.dll.config" />
     <Content Include="Web.config" />
+    <Content Include="Views\Events\Create.cshtml" />
+    <Content Include="Views\Events\Delete.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
+    <Content Include="Views\Events\Edit.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\UserFavorites\Create.cshtml" />
+    <Content Include="Views\UserFavorites\Delete.cshtml" />
+    <Content Include="Views\UserFavorites\Details.cshtml" />
+    <Content Include="Views\UserFavorites\Edit.cshtml" />
+    <Content Include="Views\UserFavorites\Index.cshtml" />
+    <Content Include="Views\UserEvent\EventById.cshtml" />
     <Content Include="Views\UserEvent\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -323,13 +293,6 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <EntityDeploy Include="Models\TicketMasterApiAppDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TicketMasterApiAppDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\TicketMasterApiAppDB.edmx.diagram">
-      <DependentUpon>TicketMasterApiAppDB.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

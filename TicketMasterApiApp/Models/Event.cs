@@ -12,32 +12,48 @@ namespace TicketMasterApiApp.Models
     using Newtonsoft.Json.Linq;
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.Globalization;
+
     public partial class Event
     {
+        [Key]
         public string Id { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Type { get; set; }
+        [Required]
         public System.DateTime SaleStarts { get; set; }
+        [Required]
         public System.DateTime SaleEnds { get; set; }
+        [Required]
         public string Status { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public Nullable<double> MaxPrice { get; set; }
+        public Nullable<double> MinPrice { get; set; }
         public virtual ICollection<UserFavorite> UserFavorites { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Event()
-        {
-            this.UserFavorites = new HashSet<UserFavorite>();
-        }
-    
+        { }
+
         public Event(JObject data)
         {
+            var start = (string)(data["sales"]["public"]["endDateTime"]);
+            var end = (string)data["sales"]["public"]["endDateTime"];
+
             Name = data["name"].ToString();
             Id = data["id"].ToString();
             Type = data["type"].ToString();
-            SaleStarts = DateTime.Parse((string)data["sales"]["public"]["startDateTime"]);
-            SaleEnds = DateTime.Parse((string)data["sales"]["public"]["endDateTime"]);
-            Status = data["dates"]["status"]["code"].ToString();
+            if (start != null)
+            {
+                SaleStarts = DateTime.Parse(start);
+            }
+            if (end != null)
+            {
+                SaleEnds = DateTime.Parse(end);
+            }
+
+            Status = data["dates"]["status"]["code"].ToString();            
         }
         
     }

@@ -11,11 +11,17 @@ namespace TicketMasterApiApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class UserFavorite
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    public class UserFavorite
     {
+        [Required]
+        [Key, Column(Order = 0)]
         public string UserId { get; set; }
-        public string EventId { get; set; }    
+        [Required]
+        [Key, Column(Order = 1)]
+        public string EventId { get; set; }
         public virtual Event Event { get; set; }
     }
 }

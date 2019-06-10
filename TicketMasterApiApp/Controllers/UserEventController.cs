@@ -11,7 +11,7 @@ namespace TicketMasterApiApp.Controllers
     public class UserEventController : Controller
     {
         // GET: UserEvent
-       // [Authorize]
+        [Authorize]
         public ActionResult Index()
         {
             JObject data = TicketMasterApiAppDAL.GetData("https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&");
@@ -25,5 +25,30 @@ namespace TicketMasterApiApp.Controllers
 
             return View(favs);
         }
+
+        [Authorize]
+        public ActionResult EventById(string id)
+        {
+            return View(TicketMasterApiAppDAL.GetEventById(id));
+        }
+
+        [Authorize]
+        public bool AddToFavorite(string id)
+        {
+            return UserFavoroiteDBDAL.AddUserFavorite(new Event(TicketMasterApiAppDAL.GetEventById(id)), User.Identity.Name);
+        }
+
+        [Authorize]
+        public void DeleteFavorite(string id)
+        {
+            UserFavoroiteDBDAL.DeleteFavorite(id, User.Identity.Name);
+        }
+
+        //[Authorize]
+        //public void UserFavorite()
+        //{
+        //    IEnumerable<Event> favs = UserFavoroiteDBDAL.GetUserFavorites(User.Identity.Name);
+        //    return View(favs);
+        //}
     }
 }

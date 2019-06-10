@@ -151,7 +151,7 @@ namespace TicketMasterApiApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { LastName = model.LastName, FirstName = model.FirstName,  UserName = model.UserName, Email = model.Email };
+                var user = new ApplicationUser { LastName = model.LastName, FirstName = model.FirstName,  UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
