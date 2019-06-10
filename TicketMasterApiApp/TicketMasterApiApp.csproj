@@ -274,7 +274,6 @@
     <Content Include="obj\Debug\TicketMasterApiApp.csproj.CoreCompileInputs.cache" />
     <Content Include="obj\Debug\TicketMasterApiApp.csprojAssemblyReference.cache" />
     <Content Include="bin\TicketMasterApiApp.dll.config" />
-    <Content Include="Web.config" />
     <Content Include="Views\Events\Create.cshtml" />
     <Content Include="Views\Events\Delete.cshtml" />
     <Content Include="Views\Events\Details.cshtml" />
@@ -287,12 +286,7 @@
     <Content Include="Views\UserFavorites\Index.cshtml" />
     <Content Include="Views\UserEvent\EventById.cshtml" />
     <Content Include="Views\UserEvent\Index.cshtml" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
+    <Content Include="Web.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -331,6 +325,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

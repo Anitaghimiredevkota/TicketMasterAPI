@@ -12,11 +12,25 @@
         background-color: white;
         color: black;
     }
+
+    form > #Price{
+        color: black;
+    }
+    #PriceForm{
+        text-align:center;
+    }
     
 </style>
 <script src="~/Scripts/jquery-3.3.1.js"></script>
 
 <h2>Index</h2>
+<h3>@ViewBag.PriceSearch</h3>
+
+<form id="PriceForm" action="../UserEvent/GetEventByPrice" method="post">
+    <label for="Price">Enter desired price: </label>
+    <input id="Price" type="number" name="price" min="0.0000" placeholder="Enter Price" />
+    <input type="submit"  value="Search-By-Price" class="btn-success" />
+</form>
 
 @foreach (TicketMasterApiApp.Models.Event e in @Model)
 {

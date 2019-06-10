@@ -44,6 +44,15 @@ namespace TicketMasterApiApp.Controllers
             UserFavoroiteDBDAL.DeleteFavorite(id, User.Identity.Name);
         }
 
+        [Authorize]
+        public ActionResult GetEventByPrice(double price)
+        {
+
+            ViewBag.PriceSearch = "Sorted by Price: $" + price;
+
+            return View("../UserEvent/Index", TicketMasterApiAppDAL.GetEventsByPrice(price));
+        }
+
         //[Authorize]
         //public void UserFavorite()
         //{
