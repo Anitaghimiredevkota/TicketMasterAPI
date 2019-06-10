@@ -39,9 +39,9 @@ namespace TicketMasterApiApp.Controllers
         }
 
         [Authorize]
-        public void DeleteFavorite(string id)
+        public bool DeleteFavorite(string id)
         {
-            UserFavoroiteDBDAL.DeleteFavorite(id, User.Identity.Name);
+            return UserFavoroiteDBDAL.DeleteFavorite(id, User.Identity.Name);
         }
 
         //[Authorize]
