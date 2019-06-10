@@ -21,10 +21,10 @@
 {
     
         <div class="col-md-12 col-xs-12 event-div">
-            <h3>
-                <img id="@fav.Event.Id" src="https://image.flaticon.com/icons/svg/149/149220.svg" style="width:25px; height:25px;" />
+            
+                <img id="@fav.Event.Id" class="selectedImg" src="https://image.flaticon.com/icons/svg/143/143515.svg" style="width:25px; height:25px;" />
                 @fav.Event.Name
-            </h3>
+            
             <p>@fav.Event.Type</p>
             <p>@fav.Event.Status</p>
             <p>@fav.Event.SaleStarts - @fav.Event.SaleEnds</p>
@@ -39,7 +39,6 @@
         $('img').hover(function () {
             if (!$(this).hasClass('selectedImg')) {
                 this.src = 'https://image.flaticon.com/icons/svg/143/143515.svg';
-
             }
         });
 
@@ -54,7 +53,7 @@
             if ($(this).hasClass('selectedImg')) {
                 $(this).removeClass('selectedImg');
                 this.src = 'https://image.flaticon.com/icons/svg/149/149220.svg';
-                DeleteFav(this.id);
+                DeleteFav(this);
             }
             else {
                 $(this).addClass('selectedImg');
@@ -70,15 +69,15 @@
             $(this).removeClass('event-enter');
         });
 
-        function DeleteFav(id) {
+        function DeleteFav(el) {
             $.ajax({
                 type: 'POST',
                 contentType: "application/json; charset=utf-8",
                 url: '../UserEvent/DeleteFavorite',
-                data: "{'id':'" + id + "'}",
+                data: "{'id':'" + el.id + "'}",
                 async: false,
                 success: function (response) {
-                    alert(response);
+                    $(el.parentNode).fadeOut();
                 },
                 error: function () {
                     console.log('there is some error');
