@@ -1,4 +1,4 @@
-﻿@model System.Collections.Generic.List<TicketMasterApiApp.Models.Event>
+﻿@model System.Collections.Generic.List<TicketMasterApiApp.Models.UserFavorite>
 @{
     ViewBag.Title = "Index";
 }
@@ -8,28 +8,29 @@
         color: azure;
     }
 
-    .event-enter{
+    .event-enter {
         background-color: white;
         color: black;
     }
-    
 </style>
 <script src="~/Scripts/jquery-3.3.1.js"></script>
 
 <h2>Index</h2>
 
-@foreach (TicketMasterApiApp.Models.Event e in @Model)
+@foreach (TicketMasterApiApp.Models.UserFavorite fav in @Model)
 {
-<div class="col-md-12 col-xs-12 event-div">
-    <h3>
-        <img id="@e.Id" src="https://image.flaticon.com/icons/svg/149/149220.svg" style="width:25px; height:25px;" />
-        @e.Name
-    </h3>
-    <p>@e.Type</p>
-    <p>@e.Status</p>
-    <p>@e.SaleStarts - @e.SaleEnds</p>
-    <p><a href="../UserEvent/EventById?id=@e.Id">more info</a><p>
-</div>
+    
+        <div class="col-md-12 col-xs-12 event-div">
+            <h3>
+                <img id="@fav.Event.Id" src="https://image.flaticon.com/icons/svg/149/149220.svg" style="width:25px; height:25px;" />
+                @fav.Event.Name
+            </h3>
+            <p>@fav.Event.Type</p>
+            <p>@fav.Event.Status</p>
+            <p>@fav.Event.SaleStarts - @fav.Event.SaleEnds</p>
+            <p><a href="../UserEvent/EventById?id=@fav.Event.Id">more info</a><p>
+        </div>
+    
 }
 
 <script>
@@ -38,15 +39,15 @@
         $('img').hover(function () {
             if (!$(this).hasClass('selectedImg')) {
                 this.src = 'https://image.flaticon.com/icons/svg/143/143515.svg';
-                
+
             }
         });
 
         $('img').mouseout(function () {
-                if (!$(this).hasClass('selectedImg')) {
-                    this.src = 'https://image.flaticon.com/icons/svg/149/149220.svg';
-                }
-            });
+            if (!$(this).hasClass('selectedImg')) {
+                this.src = 'https://image.flaticon.com/icons/svg/149/149220.svg';
+            }
+        });
 
         $('img').click(function () {
 

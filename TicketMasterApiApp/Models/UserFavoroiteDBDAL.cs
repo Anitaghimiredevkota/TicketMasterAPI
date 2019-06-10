@@ -7,21 +7,43 @@ namespace TicketMasterApiApp.Models
 {
     public class UserFavoroiteDBDAL
     {
-        private readonly static TicketMasterApiAppDBEntities db = new TicketMasterApiAppDBEntities();
+        private readonly static AllDBContext db = new AllDBContext();
 
-        public static IEnumerable<UserFavorite> GetUserFavorite(string id)
-        {
-            return db.UserFavorites.Where(u => u.UserId == id);
-        }
+        //public static IEnumerable<UserFavorite> GetUserFavorites(string id)
+        //{
 
-        public static bool AddUserFavorite(UserFavorite fav)
+        //}
+
+        public static bool DeleteFavorite(string eId, string user)
         {
             try
             {
-                db.UserFavorites.Add(fav);
+                UserFavorite f = db.UserFavorites.FirstOrDefault(e => e.EventId == eId && e.UserId == user);
+                db.UserFavorites.Remove(f);
                 db.SaveChanges();
-            }catch(Exception)
+            }
+            catch (Exception e)
             {
+                string r = e.Message;
+                return false;
+            }
+            return true;
+        }
+
+        public static bool AddUserFavorite(Event ev, string user)
+        {
+            try
+            {
+                if (db.Events.FirstOrDefault(e => e.Id == ev.Id) is null)
+                {
+                    db.Events.Add(ev);
+                    db.SaveChanges();
+                }
+                db.UserFavorites.Add(new UserFavorite { EventId = ev.Id, UserId = user });
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {               
                 return false;
             }
             return true;
